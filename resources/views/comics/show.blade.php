@@ -52,10 +52,18 @@
             <p>Sale Date: {{ $comic->sale_date }}</p>
             <p>Type: {{ $comic->type }}</p>
             <a href="{{ route('comics.index') }}">Back to list</a>
-
         </div>
 
     </div>
+
+    <!-- elimina la voce dal database -->
+    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+    <a href="{{ route('comics.index') }}">Back to list</a>
 
 
 </div>
