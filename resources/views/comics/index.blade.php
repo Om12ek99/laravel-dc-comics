@@ -26,6 +26,7 @@
             height: 300px; /* Imposta l'altezza fissa per tutte le immagini */
             object-fit: cover; /* Copre l'area con l'immagine, mantenendo le proporzioni */
         }
+        
     </style>
 @endsection
 

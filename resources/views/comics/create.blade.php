@@ -2,6 +2,13 @@
 
 @section('content')
     <style>
+            body {
+        background-image: url('/images/form.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
         form {
             max-width: 600px;
             margin: 0 auto;

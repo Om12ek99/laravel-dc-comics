@@ -14,7 +14,7 @@
   /* Stile per l'header */
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f0f0;
@@ -52,6 +52,11 @@ main {
 <body>
 
   <header>
+  <div class="logo">
+      <a href="{{ url('/') }}">
+        <img src="/images/logo.png" alt="Logo" style="height: 50px;">
+      </a>
+    </div>
     <nav>
       <ul>
         <li>
