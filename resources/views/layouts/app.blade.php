@@ -12,6 +12,12 @@
 </head>
 
 <body>
+
+<header>
+  <div>
+    
+  </div>
+</header>
   <main>
     @yield('content')
   </main>
