@@ -11,48 +11,47 @@
   @vite('resources/js/app.js')
 </head>
 <style>
-  /* Stile per l'header */
-header {
+  header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
-}
+  }
 
-/* Stile per la navbar */
-nav ul {
+
+  nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
-}
+  }
 
-nav ul li {
+  nav ul li {
     margin-right: 15px;
-}
+  }
 
-nav ul li a {
+  nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-}
+  }
 
-nav ul li a:hover {
+  nav ul li a:hover {
     text-decoration: underline;
-}
+  }
 
-/* Stile per il main content */
-main {
+
+  main {
     padding: 20px;
-}
+  }
 </style>
 
 <body>
 
   <header>
-  <div class="logo">
+    <div class="logo">
       <a href="{{ url('/') }}">
         <img src="/images/logo.png" alt="Logo" style="height: 50px;">
       </a>
