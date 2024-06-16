@@ -1,6 +1,6 @@
 <?php
 
-// app/Http/Controllers/ComicController.php
+
 
 namespace App\Http\Controllers;
 
@@ -9,22 +9,23 @@ use Illuminate\Http\Request;
 
 class ComicController extends Controller
 {
-    // Display a listing of the resource.
+    // index
     public function index()
     {
         $comics = Comic::all();
         return view('comics.index', compact('comics'));
     }
 
-    // Show the form for creating a new resource.
+//    create
     public function create()
     {
         return view('comics.create');
     }
 
-    // Store a newly created resource in storage.
+    // store
     public function store(Request $request)
     {
+        // validazione dei dati
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -35,23 +36,24 @@ class ComicController extends Controller
             'type' => 'required|string|max:255',
         ]);
 
+        //crea ununa nuova voce usando il metodo create
         Comic::create($validatedData);
         return redirect()->route('comics.index');
     }
 
-    // Display the specified resource.
+    // show
     public function show(Comic $comic)
     {
         return view('comics.show', compact('comic'));
     }
 
-    // Show the form for editing the specified resource.
+    // editing della voce corrente
     public function edit(Comic $comic)
     {
         return view('comics.edit', compact('comic'));
     }
 
-    // Update the specified resource in storage.
+    // aggiorna
     public function update(Request $request, Comic $comic)
     {
         $validatedData = $request->validate([
@@ -68,7 +70,7 @@ class ComicController extends Controller
         return redirect()->route('comics.index');
     }
 
-    // Remove the specified resource from storage.
+    // delete
     public function destroy(Comic $comic)
     {
         $comic->delete();

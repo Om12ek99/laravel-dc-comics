@@ -41,7 +41,7 @@
         }
 
         textarea {
-            height: 100px; /* Setting a fixed height for textarea */
+            height: 100px; 
         }
 
         button[type="submit"] {

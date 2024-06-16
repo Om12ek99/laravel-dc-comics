@@ -53,20 +53,25 @@
             <p>Type: {{ $comic->type }}</p>
             <a href="{{ route('comics.index') }}">Back to list</a>
         </div>
-
     </div>
 
     <!-- elimina la voce dal database -->
-    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" style="display:inline-block;">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 
+    <!-- link per editare il fumetto -->
+    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
+
+    <!-- form per aggiornare il fumetto -->
+    <form action="{{ route('comics.update', $comic->id) }}" method="POST" style="display:inline-block;">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+
     <a href="{{ route('comics.index') }}">Back to list</a>
-
-
-</div>
-
 </div>
 @endsection
