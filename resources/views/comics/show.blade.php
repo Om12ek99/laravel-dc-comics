@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .comic-details {
-        max-width: 600px;
+        max-width: 80%;
         margin: 20px auto;
         padding: 20px;
         border: 1px solid #ccc;
