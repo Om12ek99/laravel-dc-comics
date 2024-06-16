@@ -37,6 +37,19 @@
     a:hover {
         text-decoration: underline;
     }
+    .actions{
+        align-items: center;
+        text-align: center;
+        justify-content: left;
+        gap: 10px;
+        margin-top: 3rem;
+
+
+    }
+    .custom_edit{
+        margin-top: 0;
+        justify-content: center;
+        }
 </style>
 
 <div class="comic-details">
@@ -51,26 +64,24 @@
             <p>Series: {{ $comic->series }}</p>
             <p>Sale Date: {{ $comic->sale_date }}</p>
             <p>Type: {{ $comic->type }}</p>
-            <a href="{{ route('comics.index') }}">Back to list</a>
         </div>
     </div>
 
-    <!-- elimina la voce dal database -->
-    <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" style="display:inline-block;">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+    <div class="actions d-flex">
+        <!-- elimina la voce dal database -->
+        <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
 
-    <!-- link per editare il fumetto -->
-    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary">Edit</a>
+        <!-- link per editare il fumetto -->
+        <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary custom_edit">Edit</a>
 
-    <!-- form per aggiornare il fumetto -->
-    <form action="{{ route('comics.update', $comic->id) }}" method="POST" style="display:inline-block;">
-        @csrf
-        @method('PUT')
-        <button type="submit" class="btn btn-success">Update</button>
-    </form>
+        <!-- form per aggiornare il fumetto -->
+
+    </div>
+
 
     <a href="{{ route('comics.index') }}">Back to list</a>
 </div>
