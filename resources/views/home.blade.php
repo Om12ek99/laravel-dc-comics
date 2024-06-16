@@ -11,19 +11,20 @@
 
     h1 {
         font-size: 8rem;
-        color: #fff; /* Colore del testo per migliorare la leggibilità sullo sfondo */
+        color: #fff; 
     }
 
     h2 {
-        color: #fff; /* Colore del testo per migliorare la leggibilità sullo sfondo */
+        color: #fff; 
     }
 
     a {
-        color: #fff; /* Colore del testo per migliorare la leggibilità sullo sfondo */
+        color: #fff; 
         text-decoration: underline;
     }
 </style>
     <h1>COMIC ARCHIVE</h1>
+    <br>
     <h2>Il tuo archivio di fumetti preferito</h2>
     <a href="{{ route('comics.index') }}">Scopri il catalogo</a>
 @endsection
