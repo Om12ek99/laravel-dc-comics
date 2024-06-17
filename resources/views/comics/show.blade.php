@@ -85,4 +85,13 @@
 
     <a href="{{ route('comics.index') }}">Back to list</a>
 </div>
+
+<script>
+    document.getElementById('delete-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (confirm('Are you sure you want to delete this comic?')) {
+            this.submit();
+        }
+    });
+</script>
 @endsection
