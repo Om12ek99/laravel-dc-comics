@@ -23,10 +23,10 @@
 
     <style>
         .card-img-top {
-            height: 300px; /* Imposta l'altezza fissa per tutte le immagini */
-            object-fit: cover; /* Copre l'area con l'immagine, mantenendo le proporzioni */
+            height: 300px; 
+            object-fit: cover; 
         }
         
-    </style>
+    </style
 @endsection
 

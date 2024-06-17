@@ -79,7 +79,7 @@
         max-width: 80%;
         margin: 20px auto;
         padding: 20px;
-
+        
         border-radius: 5px;
     }
 
@@ -91,10 +91,10 @@
     p {
         margin-bottom: 8px;
     }
-
+    
     .col:first-child{
         display: flex;
-        justify-content: center;
+       
         align-items: center;
 
           img {
