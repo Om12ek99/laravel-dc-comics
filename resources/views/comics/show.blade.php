@@ -27,6 +27,22 @@
         z-index: 1000;
     }
 
+    .popup .close-btn{
+        color: black;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+        text-align: center;
+        line-height: 25px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        cursor: pointer;
+
+    }
+
     .comic-details {
         max-width: 80%;
         margin: 20px auto;
