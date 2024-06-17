@@ -3,19 +3,28 @@
 @section('content')
 <style>
     body:before,
-    body:after{
+    body:after {
         content: "";
         position: fixed;
         top: 0;
         left: 0;
 
     }
-    .popup{
+
+    .popup {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: inset 0px 0px 20px 5px rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        width: 450px;
+        padding: 20px 30px;
+        border-radius: 10px;
+        z-index: 1000;
     }
 
     .comic-details {
@@ -53,7 +62,8 @@
     a:hover {
         text-decoration: underline;
     }
-    .actions{
+
+    .actions {
         align-items: center;
         text-align: center;
         justify-content: left;
@@ -62,10 +72,11 @@
 
 
     }
-    .custom_edit{
+
+    .custom_edit {
         margin-top: 0;
         justify-content: center;
-        }
+    }
 </style>
 
 <div class="comic-details">
@@ -108,12 +119,15 @@
     <a href="{{ route('comics.index') }}">Back to list</a>
 </div>
 <div class="popup">
-            <h2>Sei sicuro di voler eliminare il fumetto corrente?</h2>
-            <p>l'azione non è piu reversibile</p>
-        </div>
+    <div class="close-btn">
+        &times;
+    </div>
+    <h2>Sei sicuro di voler eliminare il fumetto corrente?</h2>
+    <p>l'azione non è piu reversibile</p>
+</div>
 
 <script>
-    document.querySelector("open-popup").addEventListener("click", function(){
+    document.querySelector("open-popup").addEventListener("click", function() {
         document.querySelector(".popup").classList.add("active");
     });
 </script>
