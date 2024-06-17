@@ -92,13 +92,21 @@
         margin-bottom: 8px;
     }
 
-    img {
+    .col:first-child{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+          img {
         max-width: 100%;
-        height: auto;
+        
+        height: 400px;
         border-radius: 4px;
-        margin-bottom: 10px;
+        
     }
 
+    }
+  
     a {
         display: inline-block;
         margin-top: 15px;
