@@ -2,6 +2,22 @@
 
 @section('content')
 <style>
+    body:before,
+    body:after{
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+
+    }
+    .popup{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(255, 255, 255, 0.2);
+    }
+
     .comic-details {
         max-width: 80%;
         margin: 20px auto;
@@ -68,6 +84,12 @@
     </div>
 
     <div class="actions d-flex">
+
+        <button id="open-popup" class="btn btn-danger">Delete</button>
+
+
+
+
         <!-- elimina la voce dal database -->
         <form id="delete-form" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
             @csrf
@@ -85,13 +107,17 @@
 
     <a href="{{ route('comics.index') }}">Back to list</a>
 </div>
+<div class="popup">
+            <h2>Sei sicuro di voler eliminare il fumetto corrente?</h2>
+            <p>l'azione non è piu reversibile</p>
+        </div>
 
 <script>
-    document.getElementById('delete-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        if (confirm('Are you sure you want to delete this comic?')) {
-            this.submit();
-        }
+    document.querySelector("open-popup").addEventListener("click", function(){
+        document.querySelector(".popup").classList.add("active");
     });
 </script>
+
+
+
 @endsection
