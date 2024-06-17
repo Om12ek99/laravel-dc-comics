@@ -13,7 +13,7 @@
 
     .popup {
         position: fixed;
-        top: 50%;
+        top: -150%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(255, 255, 255, 0.2);
@@ -25,6 +25,17 @@
         padding: 20px 30px;
         border-radius: 10px;
         z-index: 1000;
+        transition: top 0ms ease-in-out 0ms,
+                    opacity 300ms ease-in-out 0ms,
+                    transform 300ms ease-in-out 0ms;
+    }
+    .popup.active{
+        top: 50%;
+        transform: translate(-50%, -50%, scale(1));
+        opacity: 1;
+        transition: top 0ms ease-in-out 0ms,
+                    opacity 300ms ease-in-out 0ms,
+                    transform 300ms ease-in-out 0ms;
     }
 
     .popup .close-btn{
@@ -41,6 +52,16 @@
         border-radius: 50%;
         cursor: pointer;
 
+    }
+
+    .popup h2{
+        font-size: 35px;
+        text-align: center;
+        margin: 10px 0px 20px;
+    }
+
+    .popup p{
+        font-size: 17px;
     }
 
     .comic-details {
@@ -117,12 +138,7 @@
 
 
 
-        <!-- elimina la voce dal database -->
-        <form id="delete-form" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
+        
 
         <!-- link per editare il fumetto -->
         <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary custom_edit">Edit</a>
@@ -134,17 +150,28 @@
 
     <a href="{{ route('comics.index') }}">Back to list</a>
 </div>
+
 <div class="popup">
     <div class="close-btn">
         &times;
     </div>
     <h2>Sei sicuro di voler eliminare il fumetto corrente?</h2>
     <p>l'azione non è piu reversibile</p>
+    <!-- elimina la voce dal database -->
+    <form id="delete-form" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
 </div>
 
 <script>
-    document.querySelector("open-popup").addEventListener("click", function() {
+    document.querySelector("#open-popup").addEventListener("click", function() {
         document.querySelector(".popup").classList.add("active");
+    });
+
+    document.querySelector(".popup .close-btn").addEventListener("click", function() {
+        document.querySelector(".popup").classList.remove("active");
     });
 </script>
 
