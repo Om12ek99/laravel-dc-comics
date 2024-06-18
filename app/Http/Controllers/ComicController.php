@@ -90,17 +90,27 @@ class ComicController extends Controller
         return redirect()->route('comics.index');
     }
 
-    // delete
+    // move to bin
     public function destroy(Comic $comic)
     {
         $comic->delete();
         return redirect()->route('comics.index');
     }
 
-    public function bin(Comic $comic)
+    //bin
+        public function bin(Comic $comic)
     {
         $deletedcomics = Comic::onlyTrashed()->get();
         return view('comics.bin', compact('deletedcomics'));
+    }
+
+    //restore
+    public function restore(Comic $comic)
+    {
+        $comic = Comic::onlyTrashed();
+        dd($comic);
+        $comic->restore();
+        return redirect()->route('comics.bin');
     }
 }
 
