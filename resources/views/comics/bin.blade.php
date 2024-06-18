@@ -21,6 +21,11 @@
                                 @method('PATCH')
                                 <button type="submit" class="btn btn-success">Restore</button>
                             </form>
+                            <form action="{{ route('comics.forceDelete', $deletedComic->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </td>                       
                     </tr>
                 @endforeach

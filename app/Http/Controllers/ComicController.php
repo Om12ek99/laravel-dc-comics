@@ -111,6 +111,13 @@ class ComicController extends Controller
         $comic->restore();
         return redirect()->route('comics.bin');
     }
+
+    public function forceDelete($id)
+    {
+        $comic = Comic::onlyTrashed()->findOrFail($id);
+        $comic->forceDelete();
+        return redirect()->route('comics.bin');
+    }
     
 }
 

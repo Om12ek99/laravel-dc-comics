@@ -19,5 +19,6 @@ Route::get('/', function () {
 });
 Route::get('comics/bin', [ComicController::class, 'bin'])->name('comics.bin');
 Route::patch('comics/{comic}/restore', [ComicController::class, 'restore'])->name('comics.restore');
+Route::delete('comics/{comic}/forceDelete', [ComicController::class,'forceDelete'])->name('comics.forceDelete');
 Route::resource('comics', ComicController::class);
 
