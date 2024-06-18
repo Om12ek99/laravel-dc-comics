@@ -58,6 +58,17 @@
 <div class="comic-edit">
     <h1>Edit Comic</h1>
 
+    <!-- controlla se ci sono errori e in caso positivo mostra quelli ottenuti -->
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            @endforeach
+        </div>
+    @endif
+
     <form action="{{ route('comics.update', $comic->id) }}" method="POST">
         @csrf
         @method('PUT')
