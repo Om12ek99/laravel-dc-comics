@@ -18,5 +18,6 @@ Route::get('/', function () {
     return view('home');
 });
 Route::get('comics/bin', [ComicController::class, 'bin'])->name('comics.bin');
+Route::patch('comics/{comic}/restore', [ComicController::class, 'restore'])->name('comics.restore');
 Route::resource('comics', ComicController::class);
 

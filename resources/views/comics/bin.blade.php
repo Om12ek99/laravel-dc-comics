@@ -7,13 +7,21 @@
                 <tr>
                     <th>Titolo</th>
                     <th>Data Elimininazione</th>
+                    <th>Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($deletedcomics as $deletedComic)
                     <tr>
                         <td>{{ $deletedComic->title }}</td>
-                        <td>{{ $deletedComic->deleted_at }}</td>                        
+                        <td>{{ $deletedComic->deleted_at }}</td> 
+                        <td>
+                        <form action="{{ route('comics.restore', $deletedComic->id) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn btn-success">Restore</button>
+                            </form>
+                        </td>                       
                     </tr>
                 @endforeach
             </tbody>

@@ -105,12 +105,12 @@ class ComicController extends Controller
     }
 
     //restore
-    public function restore(Comic $comic)
+    public function restore($id)
     {
-        $comic = Comic::onlyTrashed();
-        dd($comic);
+        $comic = Comic::onlyTrashed()->findOrFail($id);
         $comic->restore();
         return redirect()->route('comics.bin');
     }
+    
 }
 
