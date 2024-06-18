@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <h1 class="mt-5 mb-4">Comics List</h1>
-    <a href="{{ route('comics.create') }}" class="btn btn-primary mb-4">Add New Comic</a>
-
+    <a href="{{ route('comics.create') }}" class="btn btn-primary mb-4">Aggiungi voce</a>
+    <a href="{{ route('comics.bin') }}" class="btn btn-primary mb-4">Mostra cestino</a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($comics as $comic)
         <div class="col">
