@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-
+Route::get('comics/bin', [ComicController::class, 'bin'])->name('comics.bin');
 Route::resource('comics', ComicController::class);
 
