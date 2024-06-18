@@ -19,15 +19,43 @@
                     <form action="{{ route('comics.restore', $deletedComic->id) }}" method="POST" style="display:inline-block;">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" class="btn btn-success">Restore</button>
+                        <button type="submit" class="btn btn-success">Ripristina</button>
                     </form>
-                    <form action="{{ route('comics.forceDelete', $deletedComic->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $deletedComic->id }}">
+                        Elimina
+                    </button>
+
+                    <div class="modal fade" id="deleteModal{{ $deletedComic->id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ $deletedComic->id }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteModalLabel{{ $deletedComic->id }}">Confirm Delete</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Sei Sicuro di voler eliminare definitivamente:  "{{ $deletedComic->title }}"?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ritorna al Cestino</button>
+                                    <form action="{{ route('comics.forceDelete', $deletedComic->id) }}" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">SI sono sicuro</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </td>
             </tr>
+
+
+
+
+
             @endforeach
         </tbody>
     </table>
